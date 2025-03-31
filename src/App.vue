@@ -1,30 +1,49 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="app-container">
+    <Sidebar />
+    <div class="content-area">
+      <router-view/>
+    </div>
+  </div>
 </template>
 
+<script>
+import Sidebar from '@/components/common/Sidebar.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Sidebar
+  }
+}
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  background-color: #f5f7fa;
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.content-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f5f7fa; /* Add a background color to make it visible */
 }
 </style>
