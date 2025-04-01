@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="QueueUp - Virtual queue system for barber shops - save time, stop waiting">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="logo192.png">
+  
+  <!-- Web app manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Font awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <title>QueueUp - Skip The Wait, Not The Quality</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img src="images/logo.png" alt="QueueUp Logo">
+          </div>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="#home" class="active">Home</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#barbers">Barbers</a></li>
+              <li><a href="#join-queue">Join Queue</a></li>
+            </ul>
+          </nav>
+          <div class="auth-buttons">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="signup-btn" class="btn btn-primary">Sign Up</button>
+          </div>
+          <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Skip The Wait, Not The Quality</h1>
+          <p>Join our virtual queue system and stop wasting time waiting at the barbershop. Get notified when it's your turn.</p>
+          <button id="join-queue-hero" class="btn btn-primary btn-large">Join Virtual Queue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How QueueUp Works</h2>
+          <p>Simple steps to save your time</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h3>Create an Account</h3>
+            <p>Sign up with your name, email, and phone number for notifications</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon">
+              <i class="fas fa-store"></i>
+            </div>
+            <h3>Select Barbershop</h3>
+            <p>Choose your preferred barbershop and barber</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h3>Join the Queue</h3>
+            <p>Add yourself to the virtual queue and select your service</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3>Get Notified</h3>
+            <p>Receive alerts as your turn approaches so you can arrive just in time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Queue Status -->
+    <section class="queue-status">
+      <div class="container">
+        <div class="section-header">
+          <h2>Live Queue Status</h2>
+          <p>See real-time wait times at your favorite barbershops</p>
+        </div>
+        <div class="status-cards">
+          <div class="status-card">
+            <div class="shop-info">
+              <h3>Downtown Cuts</h3>
+              <div class="shop-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(142)</span>
+              </div>
+            </div>
+            <div class="queue-info">
+              <div class="info-item">
+                <span>Current Queue:</span>
+                <span class="highlight">6 people</span>
+              </div>
+              <div class="info-item">
+                <span>Estimated Wait:</span>
+                <span class="highlight">45 min</span>
+              </div>
+              <div class="info-item">
+                <span>Next Available:</span>
+                <span class="highlight">12:15 PM</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block">Join This Queue</button>
+          </div>
+          <div class="status-card">
+            <div class="shop-info">
+              <h3>Classic Barbers</h3>
+              <div class="shop-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(108)</span>
+              </div>
+            </div>
+            <div class="queue-info">
+              <div class="info-item">
+                <span>Current Queue:</span>
+                <span class="highlight">3 people</span>
+              </div>
+              <div class="info-item">
+                <span>Estimated Wait:</span>
+                <span class="highlight">25 min</span>
+              </div>
+              <div class="info-item">
+                <span>Next Available:</span>
+                <span class="highlight">11:40 AM</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block">Join This Queue</button>
+          </div>
+          <div class="status-card">
+            <div class="shop-info">
+              <h3>Elite Grooming</h3>
+              <div class="shop-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(87)</span>
+              </div>
+            </div>
+            <div class="queue-info">
+              <div class="info-item">
+                <span>Current Queue:</span>
+                <span class="highlight">8 people</span>
+              </div>
+              <div class="info-item">
+                <span>Estimated Wait:</span>
+                <span class="highlight">65 min</span>
+              </div>
+              <div class="info-item">
+                <span>Next Available:</span>
+                <span class="highlight">1:20 PM</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block">Join This Queue</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barbers Section -->
+    <section id="barbers" class="barbers">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Barbers</h2>
+          <p>Choose your preferred barber and service</p>
+        </div>
+        <div class="barbers-grid">
+          <div class="barber-card">
+            <div class="barber-img">
+              <img src="images/barber-1.jpg" alt="James Wilson">
+            </div>
+            <h3>James Wilson</h3>
+            <p>Senior Barber at Downtown Cuts</p>
+            <div class="barber-services">
+              <span>Haircut</span>
+              <span>Beard Trim</span>
+              <span>Hot Towel Shave</span>
+            </div>
+            <div class="barber-status">
+              <span class="status-indicator busy"></span>
+              <span>Currently busy (2 in queue)</span>
+            </div>
+            <button class="btn btn-outline">Join Queue for James</button>
+          </div>
+          <div class="barber-card">
+            <div class="barber-img">
+              <img src="images/barber-2.jpg" alt="Michael Johnson">
+            </div>
+            <h3>Michael Johnson</h3>
+            <p>Style Expert at Classic Barbers</p>
+            <div class="barber-services">
+              <span>Haircut</span>
+              <span>Hair Styling</span>
+              <span>Coloring</span>
+            </div>
+            <div class="barber-status">
+              <span class="status-indicator available"></span>
+              <span>Available (0 in queue)</span>
+            </div>
+            <button class="btn btn-outline">Join Queue for Michael</button>
+          </div>
+          <div class="barber-card">
+            <div class="barber-img">
+              <img src="images/barber-3.jpg" alt="Robert Davis">
+            </div>
+            <h3>Robert Davis</h3>
+            <p>Beard Specialist at Elite Grooming</p>
+            <div class="barber-services">
+              <span>Beard Trim</span>
+              <span>Beard Design</span>
+              <span>Hot Towel Shave</span>
+            </div>
+            <div class="barber-status">
+              <span class="status-indicator busy"></span>
+              <span>Currently busy (3 in queue)</span>
+            </div>
+            <button class="btn btn-outline">Join Queue for Robert</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Queue Section -->
+    <section id="join-queue" class="join-queue">
+      <div class="container">
+        <div class="section-header">
+          <h2>Join the Virtual Queue</h2>
+          <p>Save time and get notified when it's your turn</p>
+        </div>
+        <div class="queue-container">
+          <div class="queue-form">
+            <form id="queue-form">
+              <div class="form-group">
+                <label for="shop">Select Barbershop</label>
+                <select id="shop" required>
+                  <option value="">Choose a barbershop</option>
+                  <option value="downtown">Downtown Cuts</option>
+                  <option value="classic">Classic Barbers</option>
+                  <option value="elite">Elite Grooming</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="barber">Select Barber (Optional)</label>
+                <select id="barber">
+                  <option value="">Any available barber</option>
+                  <option value="james">James Wilson</option>
+                  <option value="michael">Michael Johnson</option>
+                  <option value="robert">Robert Davis</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="service">Select Service</label>
+                <select id="service" required>
+                  <option value="">Choose a service</option>
+                  <option value="haircut">Haircut - $25</option>
+                  <option value="beard-trim">Beard Trim - $15</option>
+                  <option value="combo">Hair & Beard Combo - $35</option>
+                  <option value="styling">Hair Styling - $20</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="arrival-time">When can you arrive?</label>
+                <select id="arrival-time" required>
+                  <option value="15">Within 15 minutes</option>
+                  <option value="30">Within 30 minutes</option>
+                  <option value="45">Within 45 minutes</option>
+                  <option value="60">Within 1 hour</option>
+                </select>
+              </div>
+              <button type="button" id="optimize-btn" class="btn btn-outline">Suggest Optimal Shop</button>
+              <button type="submit" class="btn btn-primary btn-block">Join Queue</button>
+              <div class="queue-notice">
+                <i class="fas fa-info-circle"></i>
+                <p>You'll receive notifications as your turn approaches. Please arrive on time to maintain your spot in the queue.</p>
+              </div>
+            </form>
+          </div>
+          <div class="queue-info">
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-magic"></i>
+              </div>
+              <h3>AI-Powered Optimization</h3>
+              <p>QueueUp uses AI to suggest the best barbershop based on current wait times, your location, and barber expertise.</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3>Real-time Notifications</h3>
+              <p>Get updates on your queue status and receive alerts when it's almost your turn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Use QueueUp?</h2>
+          <p>The smart way to get a haircut</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Save Time</h3>
+            <p>No more sitting and waiting. Join the queue remotely and arrive just in time for your cut.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Reduce Stress</h3>
+            <p>Know exactly when you'll be served without the anxiety of uncertain wait times.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-coffee"></i>
+            </div>
+            <h3>Be Productive</h3>
+            <p>Use your waiting time for something valuable instead of sitting in a waiting area.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <h3>Choose Your Barber</h3>
+            <p>Select your preferred barber and get notified when they're ready for you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>What Our Users Say</h2>
+          <p>Hear from people who skip the wait</p>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              <p>"I used to waste at least 45 minutes waiting at my barbershop. With QueueUp, I just show up 5 minutes before my turn. Game changer!"</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img src="images/testimonial-1.jpg" alt="John Smith">
+              </div>
+              <div class="author-info">
+                <h4>John Smith</h4>
+                <div class="author-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              <p>"As a busy professional, I can't afford to sit around waiting. QueueUp lets me finish my work and get notified when it's time for my haircut."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img src="images/testimonial-2.jpg" alt="David Brown">
+              </div>
+              <div class="author-info">
+                <h4>David Brown</h4>
+                <div class="author-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              <p>"The AI suggestion feature is brilliant! It recommended a barbershop nearby with a shorter queue when my usual place was packed."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img src="images/testimonial-3.jpg" alt="Mark Taylor">
+              </div>
+              <div class="author-info">
+                <h4>Mark Taylor</h4>
+                <div class="author-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Stop Waiting?</h2>
+          <p>Join thousands of people who have reclaimed their time with QueueUp</p>
+          <button class="btn btn-primary btn-large">Download the App</button>
+          <div class="app-badges">
+            <a href="#" class="app-badge">
+              <img src="images/app-store.png" alt="App Store">
+            </a>
+            <a href="#" class="app-badge">
+              <img src="images/google-play.png" alt="Google Play">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="images/logo-white.png" alt="QueueUp Logo">
+            <p>Skip the wait, not the quality</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#barbers">Barbers</a></li>
+              <li><a href="#join-queue">Join Queue</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York, NY 10001</li>
+              <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+              <li><i class="fas fa-envelope"></i> info@queueup.com</li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 QueueUp. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Create Account</h2>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-phone">Phone Number</label>
+            <input type="tel" id="signup-phone" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-confirm">Confirm Password</label>
+            <input type="password" id="signup-confirm" required>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Queue Confirmation Modal -->
+    <div id="queue-confirm-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2>You're in the Queue!</h2>
+        <p>You've successfully joined the virtual queue. We'll notify you as your turn approaches.</p>
+        <div class="queue-details">
+          <div class="detail-item">
+            <span>Barbershop:</span>
+            <span id="confirm-shop"></span>
+          </div>
+          <div class="detail-item">
+            <span>Barber:</span>
+            <span id="confirm-barber"></span>
+          </div>
+          <div class="detail-item">
+            <span>Service:</span>
+            <span id="confirm-service"></span>
+          </div>
+          <div class="detail-item">
+            <span>Current Position:</span>
+            <span id="confirm-position"></span>
+          </div>
+          <div class="detail-item">
+            <span>Estimated Wait:</span>
+            <span id="confirm-wait"></span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" id="close-confirm">OK</button>
+        <div class="notifications-prompt">
+          <p>Make sure notifications are enabled to receive queue updates</p>
+          <button class="btn btn-outline" id="enable-notifications">Enable Notifications</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging-compat.js"></script>
+  
+  <!-- Your JavaScript files -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/optimizationService.js"></script>
+  <script src="js/notificationService.js"></script>
+  <script src="js/queueService.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- Register service worker for PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered successfully:', registration);
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
+

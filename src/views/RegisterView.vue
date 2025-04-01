@@ -1,20 +1,26 @@
 <template>
     <div class="auth-container">
-      <h1>Login</h1>
-      <form @submit.prevent="login">
+      <h1>Register</h1>
+      <form @submit.prevent="register">
         <input v-model="email" type="email" placeholder="Email" required />
         <input v-model="password" type="password" placeholder="Password" required />
-        <button :disabled="loading">{{ loading ? 'Logging in...' : 'Login' }}</button>
+        <select v-model="role">
+          <option disabled value="">Select role</option>
+          <option value="client">Client</option>
+          <option value="manager">Barbershop Manager</option>
+        </select>
+        <button :disabled="loading">{{ loading ? 'Registering...' : 'Register' }}</button>
         <p v-if="error" class="error">{{ error }}</p>
       </form>
-      <router-link to="/register">No account? Register here</router-link>
+      <router-link to="/login">Already have an account? Login</router-link>
     </div>
   </template>
   
   <script>
-  import { loginUser, fetchUserData } from '../firebase/auth';
+  import { registerUser, fetchUserData } from '../firebase/auth';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
+  import { ref } from 'vue';
   
   export default {
     setup() {
@@ -23,14 +29,15 @@
   
       const email = ref('');
       const password = ref('');
+      const role = ref('');
       const error = ref(null);
       const loading = ref(false);
   
-      const login = async () => {
-        loading.value = true;
+      const register = async () => {
         error.value = null;
+        loading.value = true;
         try {
-          const user = await loginUser(email.value, password.value);
+          const user = await registerUser(email.value, password.value, role.value);
           store.commit('SET_USER', user);
           const data = await fetchUserData(user.uid);
           store.commit('SET_USER_DATA', data);
@@ -42,7 +49,7 @@
         }
       };
   
-      return { email, password, error, loading, login };
+      return { email, password, role, error, loading, register };
     }
   };
   </script>
